@@ -1,4 +1,7 @@
-# node-basic
+# graphql-server-static-webpack-js ![wip](https://img.shields.io/badge/status-WIP-red.svg?style=for-the-badge)
+
+Experimental Webpack version based on the typescript-basic boilerplate.
+Webpack performs compile-time bundling (processing schema imports) and binding generation.
 
 🚀 Basic starter code for a scalable, production-ready GraphQL server for Node.js.
 

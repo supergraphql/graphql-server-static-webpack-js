@@ -1,27 +1,27 @@
 {
   "name": "graphql-server-static-js",
   "scripts": {
-    "start": "set NODE_ENV=dev && node ./src/index.js",
-    "generate:dbschema": "graphql bundle -p database -o ./src/generated/database.graphql -f",
-    "generate:schema": "graphql bundle -p app -o ./src/generated/schema.graphql -f",
-    "generate:binding": "graphql bindings ./src/generated/database.graphql -o ./src/generated/bindings.js --js -f",
-    "build": "npm run generate:dbschema && npm run generate:schema && npm run generate:binding",
-    "playground": "graphql playground",
-    "deploy": "now --public && now alias && now rm --yes --safe graphql-server-static-js"
+    "prestart": "webpack",
+    "start": "set NODE_ENV=dev && node ./build/bundle.js",
+    "playground": "graphql playground"
   },
   "dependencies": {
     "graphcool-binding": "0.2.4",
     "graphql": "^0.12.3",
-    "graphql-import": "0.1.8",
     "graphql-yoga": "0.4.3",
     "jsonwebtoken": "8.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "graphql-cli-binding": "^0.1.4",
     "graphql-cli-bundle": "^0.1.2",
-    "now": "8.5.4"
-  },
-  "now": {
-    "alias": "graphql-server-static-js"
+    "graphql-import": "0.1.8",
+    "graphql-static-binding": "^0.1.3",
+    "raw-loader": "^0.5.1",
+    "webpack": "^3.10.0",
+    "webpack-node-externals": "^1.6.0"
   }
 }
